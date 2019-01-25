@@ -1,0 +1,179 @@
+@import url('bootstrap-grid.css')
+@import url('../fonts/HelveticaNeueCyr/helveticaneue.css')
+@import url('../js/owl/owl.carousel.min.css')
+
+$accent: #5F8C43
+$dark: #191C23
+
+body
+  position: relative
+  margin: 0
+  font-family: HelveticaNeueCyr, sans-serif
+  font-size: 15px
+  font-weight: 400
+  line-height: 1.5
+  height: 100%
+  max-height: 100%
+  min-height: 100%
+  min-width: 320px
+  overflow-x: hidden
+  color: $dark
+
+.header
+  height: 650px
+  background-image: url('../img/header-bg.jpg')
+  background-size: cover
+  border-top: .3px solid transparent
+  color: #fff
+
+.header-top
+  margin-top: 30px
+
+.header-logo
+  & img
+    height: 50px
+
+.header-nav
+  margin: 0
+  padding: 0
+  list-style-type: none
+  & li
+    display: inline-block
+    & a
+      color: #fff
+      text-decoration: none
+      display: block
+      line-height: 3em
+      padding-left: 10px
+      padding-right: 10px
+
+.header-big
+  font-size: 3em
+  font-weight: 600
+  text-transform: uppercase
+  line-height: 1
+  & span
+    color: $accent
+
+.header-text
+  padding-left: 3px
+  margin: 40px 0
+
+.btn
+  display: table
+  padding-left: 55px
+  padding-right: 35px
+  line-height: 2.5em
+  background-color: rgba($accent, .75)
+  border-radius: 4px
+  position: relative
+  cursor: pointer
+  transition: ease all 250ms
+  box-shadow: 0 0 0 transparent
+  color: #fff
+  &:hover
+    background-color: rgba($accent, 1)
+    box-shadow: 0 0 25px rgba($accent, .5)
+    transform: scale(1.05)
+  &:before
+    position: absolute
+    content: ''
+    top: 10px
+    left: 20px
+    width: 15px
+    height: 17px
+    background-image: url('../img/phone.png')
+
+.item-img
+  max-width: 100%
+
+.row-header
+  margin-top: 50px
+
+.header-slider
+  & .item
+    position: relative
+    & .item-desc
+      position: absolute
+      right: 0
+      bottom: 50px
+      padding: 10px 50px
+      background-color: $dark
+
+.title
+  display: table
+  font-weight: 500
+  font-size: 2.2em
+  position: relative
+  margin-top: 50px
+  margin-bottom: 50px
+  &:after
+    position: absolute
+    content: ''
+    bottom: 0
+    left: 0
+    right: 0
+    height: 2px
+    background-color: $accent
+
+.title-center
+  margin-left: auto
+  margin-right: auto
+
+.advantage-item
+  text-align: center
+  padding-bottom: 15px
+  font-weight: 500
+  font-size: 1.1em
+  & img
+    height: 70px
+    margin-bottom: 15px
+
+.header-left
+  position: relative
+
+.socials
+  position: absolute
+  bottom: -100px
+  left: 0
+  display: table
+  & a
+    display: inline-block
+    vertical-align: middle
+    transition: ease all 250ms
+    opacity: 0.5
+    padding: 15px
+    &:hover
+      opacity: 1
+
+.btn-center
+  margin-left: auto
+  margin-right: auto
+
+.text-vd
+  writing-mode: vertical-rl
+  display: inline-block
+  vertical-align: middle
+  line-height: 1
+  font-size: 1.2em
+
+.about-stats
+  padding-top: 150px
+  font-weight: 500
+
+.text-top
+  & span
+    display: inline-block
+    vertical-align: middle
+    font-size: 4.5em
+    line-height: .75
+    color: $accent
+
+.text-bottom
+  padding-top: 9px
+  padding-right: 0px
+  font-size: 1.2em
+
+.about-left
+  & span
+    color: $accent

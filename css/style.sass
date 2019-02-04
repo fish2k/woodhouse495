@@ -25,6 +25,17 @@ body
   background-size: cover
   border-top: .3px solid transparent
   color: #fff
+  position: relative
+
+.header-overlay
+  position: absolute
+  top: 100px
+  left: 0
+  right: 0
+
+.header-col
+  padding-right: 0
+  position: relative
 
 .header-top
   margin-top: 30px
@@ -90,7 +101,17 @@ body
 .row-header
   margin-top: 50px
 
+.header-right
+  position: relative
+
 .header-slider
+  & .owl-item
+    transition: ease all 450ms
+    &.active
+      transition: ease all 450ms
+      opacity: 1
+      & ~ .active
+        opacity: 0.5
   & .item
     position: relative
     & .item-desc
@@ -99,6 +120,15 @@ body
       bottom: 50px
       padding: 10px 50px
       background-color: $dark
+  & .owl-nav
+    position: absolute
+    right: calc(50% - 215px)
+    bottom: -30px
+    & button
+      outline: none
+      &:first-child
+        & img
+          padding-right: 15px
 
 .title
   display: table
@@ -119,6 +149,12 @@ body
 .title-center
   margin-left: auto
   margin-right: auto
+
+.subtitle
+  color: #777
+  margin-top: -30px
+  &.subtitle-center
+    text-align: center
 
 .advantage-item
   text-align: center
@@ -153,27 +189,388 @@ body
 .text-vd
   writing-mode: vertical-rl
   display: inline-block
-  vertical-align: middle
+  vertical-align: bottom
   line-height: 1
-  font-size: 1.2em
+  font-size: 1.4em
+  transform: rotate(180deg)
+
+.about
+  background-color: #f9f9f9
+  background-image: url('../img/about-ellipse.png')
+  background-size: cover
+  background-position: center
+  padding-bottom: 60px
+
+.section
+  margin-top: 60px
+  margin-bottom: 60px
+  border-top: .3px solid transparent
+
+.text-vd-big
+  @extend .text-span
 
 .about-stats
-  padding-top: 150px
+  //padding-top: 150px
   font-weight: 500
 
-.text-top
-  & span
-    display: inline-block
-    vertical-align: middle
-    font-size: 4.5em
-    line-height: .75
-    color: $accent
+.text-span
+  display: inline-block
+  vertical-align: middle
+  font-size: 5.5em
+  line-height: .75
+  color: $accent
+  font-weight: 600
+  & > small
+    font-size: .5em
+    color: $dark
+  &.text-inline
+    width: 80%
+    vertical-align: top
+    line-height: 1.5
+    padding-left: 10px
+    color: inherit
+    margin-top: -5px
+    & small
+      font-size: .2em
+  &.text-inline-text
+    display: inline
+    & small
+      font-size: .6em
+      line-height: 1
+      color: inherit
 
 .text-bottom
   padding-top: 9px
   padding-right: 0px
   font-size: 1.2em
+  margin-bottom: 15px
 
 .about-left
   & span
     color: $accent
+  
+.services
+  & .nav-tabs
+    margin: 0 0 30px 0
+    padding: 0
+    list-style-type: none
+    position: relative
+    &:after
+      position: absolute
+      content: ''
+      left: 0
+      right: 0
+      bottom: -4px
+      height: 4px
+      background-color: #e5e5e5
+    & .nav-item
+      display: inline-block
+      margin-right: 25px
+      & > a
+        text-decoration: none
+        color: inherit
+        text-transform: uppercase
+        font-weight: 500
+        color: #777
+        line-height: 2.5em
+        display: block
+        position: relative
+        &.active
+          &:after
+            position: absolute
+            content: ''
+            bottom: -4px
+            left: 0
+            right: 0
+            height: 4px
+            background-color: $accent
+            z-index: 2
+
+.tab-pane
+  display: none
+  &.active
+    display: block
+
+.services-item
+  display: block
+  overflow: hidden
+  text-decoration: none
+  margin-bottom: 15px
+  position: relative
+  &:hover
+    & .services-thumb
+      position: relative
+      &:after
+        position: absolute
+        content: ''
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background-color: rgba(0,0,0, .5)
+        z-index: 1
+    & .services-desc
+      opacity: 1
+      bottom: 0
+    & .services-photo
+      transform: scale(1.1)
+
+.services-photo
+  max-width: 100%
+  transition: ease all 250ms
+
+.services-name
+  background-color: $accent
+  color: #fff
+  text-align: center
+  padding-top: 6px
+  padding-bottom: 6px
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+
+.howwork
+  padding-bottom: 60px
+  background-color: $dark
+  color: #fff
+  position: relative
+  &:after
+    position: absolute
+    content: ''
+    bottom: 0
+    right: 0
+    width: 625px
+    height: 169px
+    background-image: url('../img/kmr-ellipse.png')
+
+.howwork-item
+  display: table
+  width: 100%
+  margin-bottom: 30px
+  position: relative
+  z-index: 3  
+
+.howwork-count,
+.howwork-body
+  display: table-cell
+  vertical-align: bottom
+
+.howwork-count
+  width: 80px
+  & > img
+    max-width: 100%
+
+.howwork-body
+  padding-left: 20px
+
+.howwork-name
+  font-weight: 600
+  color: $accent
+  font-size: 1.2em
+
+.services-desc
+  opacity: 0
+  position: absolute
+  bottom: -50%
+  left: 0
+  right: 0
+  color: #fff
+  padding: 15px
+  z-index: 5
+  transition: ease-in-out all 250ms
+
+.services-type
+  font-weight: 500
+  margin-bottom: 5px
+
+.services-text
+  font-size: .8em
+  line-height: 1.2
+
+.form
+  @extend .howwork
+  .subtitle
+    color: #E0E0E0
+  &:after
+    display: none
+  
+.form-1_input
+  width: 100%
+  border: none
+  background-color: #2D313C
+  line-height: 3.3em
+  border-radius: 4px
+  padding-left: 50px
+  padding-right: 15px
+  font-family: inherit
+  color: #e5e5e5
+  outline: none
+  &::placeholder
+    color: #c0c0c0
+
+label
+  &[for="form-1_name"],
+  &[for="form-1_tel"]
+    position: relative
+    &:after
+      position: absolute
+      content: ''
+      top: 0
+      left: 17px
+      width: 15px
+      height: 17px
+    &[for="form-1_name"]
+      &:after
+        background-image: url('../img/client.png')
+    &[for="form-1_tel"]
+      &:after
+        background-image: url('../img/phone.png')
+
+.form-1_submit
+  @extend .btn
+  border: none
+  text-align: center
+  display: block
+  padding: 0
+  width: 100%
+  line-height: 3.3
+  &:before
+    display: none
+
+.form-1
+  & small
+    color: #c0c0c0
+    font-size: .75em
+    line-height: 1.2
+
+.faq-item
+  margin-bottom: 30px
+  position: relative
+  z-index: 3
+
+.faq-ask
+  font-size: 1.3em
+  font-weight: 600
+  color: $accent
+
+.faqform
+  position: relative
+  &:before
+    position: absolute
+    content: ''
+    top: 0
+    left: 0
+    width: 473px
+    height: 1078px
+    background-image: url('../img/faq-ellipse.png')
+  &:after
+    position: absolute
+    content: ''
+    right: 0
+    top: 30%
+    width: 144px
+    height: 817px
+    background-image: url('../img/wood.png')
+    z-index: 1
+
+.contacts-item
+  width: 50%
+  float: left
+  margin-top: 15px
+  margin-bottom: 15px
+  font-size: 1.6em
+
+.contacts-name
+  color: $accent
+  font-weight: 500
+
+.contacts-tel
+  color: #777
+  text-decoration: none
+
+.contacts-socials
+  clear: both
+  padding-top: 15px
+  & > .social
+    display: inline-block
+    width: 30px
+    height: 30px
+    background-color: $accent
+    border-radius: 5px
+    margin-right: 30px
+    &.vk
+      background-image: url('../img/vk.png')
+      background-repeat: no-repeat
+      background-position: 5px 9px
+    &.ig
+      background-image: url('../img/ig.png')
+      background-repeat: no-repeat
+      background-position: 5px 5px
+    &.yt
+      background-image: url('../img/yt.png')
+      background-repeat: no-repeat
+      background-position: 5px 7px
+
+.footer
+  padding-top: 20px
+  padding-bottom: 20px
+  background-color: #f9f9f9
+
+.footer-nav
+  @extend .header-nav
+  & li
+    & a
+      color: #888
+
+.footer-side
+  & span
+    text-transform: uppercase
+    & > span
+      color: $accent
+
+.header-slider_counter
+  position: absolute
+  bottom: -20px
+  left: 15px
+  padding-right: 25px
+  padding-left: 25px
+  
+.count_a,
+.count_b
+  position: absolute
+  top: 0
+
+.count_a
+  left: 0
+
+.count_b
+  right: 0
+
+.count_dots
+  padding-top: 10px
+  & .owl-dot
+    background-color: #fff
+    border: none
+    font-size: 0
+    line-height: 0
+    padding: 0
+    display: block
+    width: 20px
+    height: 2px
+    color: transparent
+    outline: none
+    float: left
+    &.active
+      background-color: $accent
+
+.header-tel
+  display: table
+  float: right
+  & a
+    line-height: 3em
+    color: #fff
+    text-decoration: none
+    margin-right: 15px
+    &:last-child
+      margin-right: 0

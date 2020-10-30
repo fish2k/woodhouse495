@@ -11,8 +11,8 @@ $(document).ready(function(){
     dotsContainer: '.count_dots',
     nav: true,
     navText: [
-      '<img src="../img/arl.png">',
-      '<img src="../img/arr.png">'
+      '<img src="/img/arl.png">',
+      '<img src="/img/arr.png">'
     ],
     smartSpeed: 700,
     margin: 15,
